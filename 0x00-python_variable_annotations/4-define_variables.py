@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""vars"""
+'''vars
+'''
 
 
 a: int = 1
