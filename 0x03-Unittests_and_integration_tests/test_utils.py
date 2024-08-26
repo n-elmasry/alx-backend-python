@@ -61,11 +61,15 @@ class TestMemoize(unittest.TestCase):
     def test_memoize(self) -> None:
         """Tests `memoize`'s caching behavior."""
         class TestClass:
+            """testclass"""
+
             def a_method(self) -> int:
+                """method"""
                 return 42
 
             @memoize
             def a_property(self) -> int:
+                """method"""
                 return self.a_method()
 
         # Patch `a_method` to return a fixed value of 42
