@@ -8,6 +8,7 @@ from client import GithubOrgClient
 
 
 class TestGithubOrgClient(unittest.TestCase):
+    """class"""
 
     @parameterized.expand([
         ("google", {"repos_url": "https://api.github.com/orgs/google/repos"}),
@@ -15,6 +16,8 @@ class TestGithubOrgClient(unittest.TestCase):
     ])
     @patch('client.get_json')
     def test_org(self, org_name: str, expected: dict, mock_get_json: Mock) -> None:
+        """test_org"""
+
         mock_get_json.return_value = expected
 
         client = GithubOrgClient(org_name)
@@ -28,6 +31,8 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @patch('client.GithubOrgClient.org')
     def test_public_repos_url(self, mock_org: Mock) -> None:
+        """test_public_repos_url"""
+
         mock_org.return_value = {
             "repos_url": "https://api.github.com/orgs/test_org/repos"
         }
@@ -41,6 +46,8 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @patch('client.get_json')
     def test_public_repos(self, mock_get_json: Mock) -> None:
+        """test_public_repos"""
+
         mock_get_json.return_value = [
             {"name": "repo1", "license": {"key": "MIT"}},
             {"name": "repo2", "license": {"key": "Apache-2.0"}},
